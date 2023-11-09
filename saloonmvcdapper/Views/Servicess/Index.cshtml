@@ -1,0 +1,60 @@
+﻿@model IEnumerable<saloonmvcdapper.Models.Servicess>
+
+
+
+
+<h2>Services</h2>
+<br />
+
+
+
+
+    @Html.ActionLink("Create New", "ServicessCRUP", null, new { @class = "btn btn-secondary btn-sm" })
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServicePurpose)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceFee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StaffID)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServiceName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServicePurpose)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServiceFee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaymentType)
+            </td>
+            <td>
+                @Html.DisplayFor( modelItem=> item.StaffID)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "ServicessCRUP", new { id = item.ServiceID }, new { @class = "btn btn-outline-secondary btn-sm" }) |
+
+                @Html.ActionLink("Delete", "Delete", new { id = item.ServiceID }, new { @class = "btn btn-outline-secondary btn-sm" })
+            </td>
+        </tr>
+    }
+
+</table>

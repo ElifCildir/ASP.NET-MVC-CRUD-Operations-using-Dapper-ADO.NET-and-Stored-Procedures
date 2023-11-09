@@ -1,0 +1,60 @@
+﻿@model IEnumerable<saloonmvcdapper.Models.Material>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Material</h2>
+<br />
+
+    @Html.ActionLink("Create New", "MatCRUP", null, new { @class = "btn btn-secondary btn-sm" })
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MaterialName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaterialPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaterialFunction)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaterialDefiniton)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) 
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaterialName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaterialPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaterialFunction)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaterialDefiniton)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ServiceID)
+        </td>
+        @Html.HiddenFor(modelItem=>item.MaterialID)
+        <td>
+            @Html.ActionLink("Edit", "MatCRUP", new { id = item.MaterialID }, new { @class = "btn btn-outline-secondary btn-sm" }) |
+
+            @Html.ActionLink("Delete", "Delete", new { id = item.MaterialID }, new { @class = "btn btn-outline-secondary btn-sm" })
+        </td>
+    </tr>
+}
+
+</table>

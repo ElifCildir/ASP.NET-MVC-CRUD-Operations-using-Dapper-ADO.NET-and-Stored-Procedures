@@ -1,0 +1,39 @@
+﻿@model IEnumerable<saloonmvcdapper.Models.Centers>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Centers</h2>
+<br />
+
+    @Html.ActionLink("Create New", "SalCRUP", null, new { @class="btn btn-secondary btn-sm"})
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CenterName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OperationPerformed)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CenterName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OperationPerformed)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "SalCRUP", new { id = item.CenterID }, new { @class = "btn btn-outline-secondary btn-sm" }) |
+         
+            @Html.ActionLink("Delete", "Delete", new {  id=item.CenterID }, new {@class = "btn btn-outline-secondary btn-sm" })
+        </td>
+    </tr>
+}
+
+</table>

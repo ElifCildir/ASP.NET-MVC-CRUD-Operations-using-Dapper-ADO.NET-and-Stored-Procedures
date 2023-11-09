@@ -1,0 +1,63 @@
+﻿@model IEnumerable<saloonmvcdapper.Models.Staff>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Staff</h2>
+
+<br />
+    @Html.ActionLink("Create New", "StaffCRUP", null, new { @class = "btn btn-secondary btn-sm" })
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NameSurname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Salary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WorkSchedule)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bonus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CenterID)
+
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameSurname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Salary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WorkSchedule)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bonus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CenterID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "StaffCRUP", new { id=item.StaffID }, new { @class = "btn btn-outline-secondary btn-sm" } ) |
+
+            @Html.ActionLink("Delete", "Delete", new { id=item.StaffID }, new { @class = "btn btn-outline-secondary btn-sm" })
+        </td>
+    </tr>
+}
+
+</table>
